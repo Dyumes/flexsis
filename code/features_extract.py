@@ -140,28 +140,6 @@ def px_fetch(table, filters, chunk=8):
     return pd.concat(frames, ignore_index=True)
 
 
-def simap_search(extra, max_pages=200):
-    url = "https://www.simap.ch/api/publications/v2/project/project-search"
-    rows, last = [], None
-    for _ in range(max_pages):
-        params = {"projectSubTypes": "construction", "orderAddressCantons": "VS",
-                  "newestPublicationFrom": "2023-01-01", **extra}
-        if last:
-            params["lastItem"] = last
-        r = S.get(url, params=params, timeout=60)
-        if r.status_code != 200:
-            raise RuntimeError(f"{r.status_code} {r.text[:300]}")
-        data = r.json()
-        items = next((v for v in data.values() if isinstance(v, list)), []) if isinstance(data, dict) else data
-        rows += items
-        pag = data.get("pagination", {}) if isinstance(data, dict) else {}
-        last = (pag.get("lastItem") or data.get("lastItem")) if isinstance(data, dict) else None
-        if not items or not last:
-            break
-        time.sleep(1)  # limite 60 req/min
-    return rows
-
-
 def fetch_all():
     OUT.mkdir(exist_ok=True)
     # BFS (contexte)
@@ -213,15 +191,6 @@ def fetch_all():
                 log(f"OK   holidays_{kind}_{sub}.csv ({len(rows)} lignes)")
             except Exception as e:
                 log(f"FAIL holidays {kind} {sub}: {e}")
-    # simap (appels d'offres et adjudications de construction en Valais)
-    for label, extra in {"tenders": {"newestPubTypes": "tender"},
-                         "awards": {"newestPubTypes": "award_tender"}}.items():
-        try:
-            rows = simap_search(extra)
-            pd.json_normalize(rows).to_csv(OUT / f"simap_vs_construction_{label}.csv", index=False)
-            log(f"OK   simap_vs_construction_{label}.csv ({len(rows)} lignes)")
-        except Exception as e:
-            log(f"FAIL simap {label}: {e}")
     # SITG Genève (optionnel)
     if SITG_WFS and SITG_TYPENAME:
         try:
@@ -375,22 +344,6 @@ def sec_weather():
         put(k + "bad_workdays", a["bad"], desc=f"Jours ouvrables (lun-ven) à {label} avec >= {HEAVY_RAIN_MM} mm de pluie OU température max < 0 °C : proxy de jours de chantier perdus (rattrapage attendu 1-4 semaines après)", unit="jours (0-5)", **kw)
         put(k + "sun_hours", a["sun_h"], desc=f"Heures d'ensoleillement cumulées de la semaine à {label}", unit="heures", **kw)
 
-
-def sec_simap():
-    first_any = None
-    for kind, fname, lab in (("tenders", "simap_vs_construction_tenders.csv", "appels d'offres publiés"),
-                             ("awards", "simap_vs_construction_awards.csv", "adjudications publiées")):
-        dt = pd.to_datetime(pd.read_csv(OUT / fname, usecols=["publicationDate"])["publicationDate"])
-        cnt = pd.Series(1.0, index=week_start_idx(dt)).groupby(level=0).sum()
-        s = cnt.reindex(M.index).fillna(0)
-        s[M.index < cnt.index.min()] = np.nan    # avant la 1re publication connue : inconnu, pas zéro
-        kw = dict(group="appels_offres", source="simap.ch API (construction, Valais)", freq="événements (journalier)",
-                  avail="même semaine (temps réel)")
-        put(f"simap_vs_{kind}_n", s, desc=f"Nombre d'{lab} sur simap.ch, travaux de construction, canton VS, dans la semaine", unit="nombre", **kw)
-        put(f"simap_vs_{kind}_13w", s.rolling(13, min_periods=13).sum(),
-            desc=f"Somme glissante sur 13 semaines des {lab} (lisse le bruit hebdomadaire ; pipeline à 3 mois)", unit="nombre", **kw)
-
-
 def sec_sitg():
     p = OUT / "sitg_permis_ge.csv"
     if not p.exists():
@@ -522,7 +475,7 @@ def sec_annual():
 def build_master():
     OUT.mkdir(exist_ok=True)
     build_spine()
-    for fn in (sec_holidays, sec_weather, sec_simap, sec_sitg, sec_kof, sec_seco, sec_snb, sec_annual):
+    for fn in (sec_holidays, sec_weather, sec_sitg, sec_kof, sec_seco, sec_snb, sec_annual):
         try:
             fn()
             log(f"BUILD OK   {fn.__name__}")

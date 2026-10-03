@@ -1,0 +1,113 @@
+start,end,type,name,nationwide
+2020-01-01,2020-01-01,Public,Nouvel an,True
+2020-01-02,2020-01-02,Public,Saint-Berchtold,False
+2020-03-19,2020-03-19,Public,Saint-Joseph,False
+2020-04-13,2020-04-13,Public,Lundi de Pâques,False
+2020-05-21,2020-05-21,Public,Ascension,True
+2020-06-01,2020-06-01,Public,Lundi de Pentecôte,False
+2020-06-11,2020-06-11,Public,Fête-Dieu,False
+2020-08-01,2020-08-01,Public,Fête nationale suisse,True
+2020-08-15,2020-08-15,Public,Assomption,False
+2020-09-19,2020-09-19,Public,Jeûne fédéral,False
+2020-11-01,2020-11-01,Public,Toussaint,False
+2020-12-08,2020-12-08,Public,Immaculée Conception,False
+2020-12-25,2020-12-25,Public,Noël,True
+2020-12-26,2020-12-26,Public,Saint-Etienne,False
+2021-01-01,2021-01-01,Public,Nouvel an,True
+2021-01-02,2021-01-02,Public,Saint-Berchtold,False
+2021-03-19,2021-03-19,Public,Saint-Joseph,False
+2021-04-05,2021-04-05,Public,Lundi de Pâques,False
+2021-05-13,2021-05-13,Public,Ascension,True
+2021-05-24,2021-05-24,Public,Lundi de Pentecôte,False
+2021-06-03,2021-06-03,Public,Fête-Dieu,False
+2021-08-01,2021-08-01,Public,Fête nationale suisse,True
+2021-08-15,2021-08-15,Public,Assomption,False
+2021-09-19,2021-09-19,Public,Jeûne fédéral,False
+2021-11-01,2021-11-01,Public,Toussaint,False
+2021-12-08,2021-12-08,Public,Immaculée Conception,False
+2021-12-25,2021-12-25,Public,Noël,True
+2021-12-26,2021-12-26,Public,Saint-Etienne,False
+2022-01-01,2022-01-01,Public,Nouvel an,True
+2022-01-02,2022-01-02,Public,Saint-Berchtold,False
+2022-03-19,2022-03-19,Public,Saint-Joseph,False
+2022-04-18,2022-04-18,Public,Lundi de Pâques,False
+2022-05-26,2022-05-26,Public,Ascension,True
+2022-06-06,2022-06-06,Public,Lundi de Pentecôte,False
+2022-06-16,2022-06-16,Public,Fête-Dieu,False
+2022-08-01,2022-08-01,Public,Fête nationale suisse,True
+2022-08-15,2022-08-15,Public,Assomption,False
+2022-09-18,2022-09-18,Public,Jeûne fédéral,False
+2022-11-01,2022-11-01,Public,Toussaint,False
+2022-12-08,2022-12-08,Public,Immaculée Conception,False
+2022-12-25,2022-12-25,Public,Noël,True
+2022-12-26,2022-12-26,Public,Saint-Etienne,False
+2023-01-01,2023-01-01,Public,Nouvel an,True
+2023-01-02,2023-01-02,Public,Saint-Berchtold,False
+2023-03-19,2023-03-19,Public,Saint-Joseph,False
+2023-04-10,2023-04-10,Public,Lundi de Pâques,False
+2023-05-18,2023-05-18,Public,Ascension,True
+2023-05-29,2023-05-29,Public,Lundi de Pentecôte,False
+2023-06-08,2023-06-08,Public,Fête-Dieu,False
+2023-08-01,2023-08-01,Public,Fête nationale suisse,True
+2023-08-15,2023-08-15,Public,Assomption,False
+2023-09-17,2023-09-17,Public,Jeûne fédéral,False
+2023-11-01,2023-11-01,Public,Toussaint,False
+2023-12-08,2023-12-08,Public,Immaculée Conception,False
+2023-12-25,2023-12-25,Public,Noël,True
+2023-12-26,2023-12-26,Public,Saint-Etienne,False
+2024-01-01,2024-01-01,Public,Nouvel an,True
+2024-01-02,2024-01-02,Public,Saint-Berchtold,False
+2024-03-19,2024-03-19,Public,Saint-Joseph,False
+2024-04-01,2024-04-01,Public,Lundi de Pâques,False
+2024-05-09,2024-05-09,Public,Ascension,True
+2024-05-20,2024-05-20,Public,Lundi de Pentecôte,False
+2024-05-30,2024-05-30,Public,Fête-Dieu,False
+2024-08-01,2024-08-01,Public,Fête nationale suisse,True
+2024-08-15,2024-08-15,Public,Assomption,False
+2024-09-15,2024-09-15,Public,Jeûne fédéral,False
+2024-11-01,2024-11-01,Public,Toussaint,False
+2024-12-08,2024-12-08,Public,Immaculée Conception,False
+2024-12-25,2024-12-25,Public,Noël,True
+2024-12-26,2024-12-26,Public,Saint-Etienne,False
+2025-01-01,2025-01-01,Public,Nouvel an,True
+2025-01-02,2025-01-02,Public,Saint-Berchtold,False
+2025-03-19,2025-03-19,Public,Saint-Joseph,False
+2025-04-21,2025-04-21,Public,Lundi de Pâques,False
+2025-05-29,2025-05-29,Public,Ascension,True
+2025-06-09,2025-06-09,Public,Lundi de Pentecôte,False
+2025-06-19,2025-06-19,Public,Fête-Dieu,False
+2025-08-01,2025-08-01,Public,Fête nationale suisse,True
+2025-08-15,2025-08-15,Public,Assomption,False
+2025-09-21,2025-09-21,Public,Jeûne fédéral,False
+2025-11-01,2025-11-01,Public,Toussaint,False
+2025-12-08,2025-12-08,Public,Immaculée Conception,False
+2025-12-25,2025-12-25,Public,Noël,True
+2025-12-26,2025-12-26,Public,Saint-Etienne,False
+2026-01-01,2026-01-01,Public,Nouvel an,True
+2026-01-02,2026-01-02,Public,Saint-Berchtold,False
+2026-03-19,2026-03-19,Public,Saint-Joseph,False
+2026-04-06,2026-04-06,Public,Lundi de Pâques,False
+2026-05-14,2026-05-14,Public,Ascension,True
+2026-05-25,2026-05-25,Public,Lundi de Pentecôte,False
+2026-06-04,2026-06-04,Public,Fête-Dieu,False
+2026-08-01,2026-08-01,Public,Fête nationale suisse,True
+2026-08-15,2026-08-15,Public,Assomption,False
+2026-09-20,2026-09-20,Public,Jeûne fédéral,False
+2026-11-01,2026-11-01,Public,Toussaint,False
+2026-12-08,2026-12-08,Public,Immaculée Conception,False
+2026-12-25,2026-12-25,Public,Noël,True
+2026-12-26,2026-12-26,Public,Saint-Etienne,False
+2027-01-01,2027-01-01,Public,Nouvel an,True
+2027-01-02,2027-01-02,Public,Saint-Berchtold,False
+2027-03-19,2027-03-19,Public,Saint-Joseph,False
+2027-03-29,2027-03-29,Public,Lundi de Pâques,False
+2027-05-06,2027-05-06,Public,Ascension,True
+2027-05-17,2027-05-17,Public,Lundi de Pentecôte,False
+2027-05-27,2027-05-27,Public,Fête-Dieu,False
+2027-08-01,2027-08-01,Public,Fête nationale suisse,True
+2027-08-15,2027-08-15,Public,Assomption,False
+2027-09-19,2027-09-19,Public,Jeûne fédéral,False
+2027-11-01,2027-11-01,Public,Toussaint,False
+2027-12-08,2027-12-08,Public,Immaculée Conception,False
+2027-12-25,2027-12-25,Public,Noël,True
+2027-12-26,2027-12-26,Public,Saint-Etienne,False
