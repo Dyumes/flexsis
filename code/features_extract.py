@@ -33,7 +33,7 @@ import requests
 START = "2020-01-01"      # début du master (jours fériés OpenHolidays dispo dès 2020)
 FUTURE_WEEKS = 13         # semaines futures ajoutées (features de calendrier uniquement)
 OUT = Path("data")
-STATIONS = {"sio": "Sion", "vis": "Visp"}   # stations MeteoSwiss (abréviations minuscules)
+STATIONS = {"sio": "Sion"}   # stations MeteoSwiss (abréviations minuscules)
 CANTONS = ["VS"]                # calendriers fériés / vacances
 HEAVY_RAIN_MM = 10.0      # seuil "forte pluie" (mm/jour)
 FROST_C = 0.0             # gel si Tmin < FROST_C
