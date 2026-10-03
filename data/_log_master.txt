@@ -20,4 +20,4 @@ BUILD OK   sec_seco
 BUILD OK   sec_snb
 BUILD OK   sec_annual
 MASTER master_weekly.csv  351 semaines x 48 colonnes
-MASTER master_weekly_documented.xlsx
+SKIP xlsx (pip install openpyxl)
