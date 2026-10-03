@@ -505,9 +505,8 @@ def build_master():
         except Exception as e:
             log(f"BUILD FAIL {fn.__name__}: {type(e).__name__}: {e}")
     # semaines futures : on ne garde que le calendrier (le forward-fill des indicateurs n'est pas une observation)
-    obs = [c for c in OBSERVED if c in M.columns]
-    M.loc[M["is_future"] == 1, obs] = np.nan
-    out = M.reset_index()
+    # semaines futures ou incomplètes : exclues du master
+    out = M[M["is_future"] == 0].drop(columns="is_future").reset_index()
     out["date"] = out["date"].dt.strftime("%Y-%m-%d")
     # dictionnaire + couverture
     dd = pd.DataFrame([dict(column="date", group="calendrier", description="Lundi de la semaine ISO (début de semaine). Les features décrivent la semaine lun-dim, ou la dernière valeur publiée à la fin de celle-ci",

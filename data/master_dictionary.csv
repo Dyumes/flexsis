@@ -1,6 +1,5 @@
 column,group,description,source,native_frequency,availability,update_frequency,unit,first_valid_week,last_valid_week,pct_missing_past_weeks
 date,calendrier,"Lundi de la semaine ISO (début de semaine). Les features décrivent la semaine lun-dim, ou la dernière valeur publiée à la fin de celle-ci",calculé,hebdo,-,n/a (colonne calculée),date,,,
-is_future,calendrier,1 = semaine incomplète ou à venir : seules les features de calendrier sont remplies,calculé,hebdo,-,n/a (colonne calculée),0/1,2020-01-06,2026-09-21,0.0
 iso_year,calendrier,Année ISO de la semaine,calculé,hebdo,-,n/a (colonne calculée),année,2020-01-06,2026-09-21,0.0
 iso_week,calendrier,Numéro de semaine ISO (1-53) : saisonnalité hebdomadaire du chantier,calculé,hebdo,-,n/a (colonne calculée),semaine,2020-01-06,2026-09-21,0.0
 month,calendrier,Mois civil du jeudi de la semaine (saisonnalité mensuelle),calculé,hebdo,-,n/a (colonne calculée),1-12,2020-01-06,2026-09-21,0.0
