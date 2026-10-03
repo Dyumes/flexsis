@@ -11,10 +11,6 @@ OK   meteo_ogd-smn_vis_d_historical.csv (2404 Ko)
 OK   meteo_ogd-smn_vis_d_recent.csv (42 Ko)
 OK   holidays_PublicHolidays_CH-VS.csv (112 lignes)
 OK   holidays_SchoolHolidays_CH-VS.csv (103 lignes)
-OK   holidays_PublicHolidays_CH-VD.csv (72 lignes)
-OK   holidays_SchoolHolidays_CH-VD.csv (42 lignes)
-OK   holidays_PublicHolidays_CH-GE.csv (72 lignes)
-OK   holidays_SchoolHolidays_CH-GE.csv (52 lignes)
 SKIP sitg_permis_ge (renseigner SITG_WFS / SITG_TYPENAME)
 BUILD OK   sec_holidays
 BUILD OK   sec_weather
@@ -23,5 +19,5 @@ BUILD OK   sec_kof
 BUILD OK   sec_seco
 BUILD OK   sec_snb
 BUILD OK   sec_annual
-MASTER master_weekly.csv  364 semaines x 55 colonnes
+MASTER master_weekly.csv  364 semaines x 49 colonnes
 SKIP xlsx (pip install openpyxl)
