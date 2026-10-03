@@ -34,7 +34,7 @@ START = "2020-01-01"      # début du master (jours fériés OpenHolidays dispo 
 FUTURE_WEEKS = 13         # semaines futures ajoutées (features de calendrier uniquement)
 OUT = Path("data")
 STATIONS = {"sio": "Sion", "vis": "Visp"}   # stations MeteoSwiss (abréviations minuscules)
-CANTONS = ["VS", "VD", "GE"]                # calendriers fériés / vacances
+CANTONS = ["VS"]                # calendriers fériés / vacances
 HEAVY_RAIN_MM = 10.0      # seuil "forte pluie" (mm/jour)
 FROST_C = 0.0             # gel si Tmin < FROST_C
 # Fermetures officielles de chantiers en Valais (AVE-WBV). 2026 : circulaire 2026. A compléter.
@@ -471,6 +471,29 @@ def sec_annual():
     put("ch_construction_invest_kchf", o["ch_invest"], desc="Investissements de construction réalisés en Suisse", unit="milliers de CHF", **kw)
     put("ch_construction_backlog_kchf", o["ch_backlog"], desc="Carnet de commandes suisse pour l'année suivante", unit="milliers de CHF", **kw)
 
+def update_frequency(col, group, source, native):
+    """Fréquence à laquelle la SOURCE publie une nouvelle donnée (≠ pas des données du fichier)."""
+    if group == "calendrier":
+        return "n/a (colonne calculée)"
+    if "AVE-WBV" in source:
+        return "annuelle"
+    if "OpenHolidays" in source or col == "vs_construction_working_days":
+        return "annuelle ou moins (calendrier publié à l'avance)"
+    if "MeteoSwiss" in source:
+        return "quotidienne (source : toutes les 10 min)"
+    if "simap" in source or "SITG" in source:
+        return "quotidienne (au fil des événements)"
+    if col.startswith("kof_barometer"):
+        return "mensuelle"
+    if col.startswith("kof_emp"):
+        return "trimestrielle"
+    if col.startswith("seco_wea"):
+        return "hebdomadaire"
+    if "SNB" in source:
+        return "mensuelle"
+    if "BFS" in source:
+        return "annuelle"
+    return native or "à définir"   # filet de sécurité si une nouvelle source est ajoutée
 
 def build_master():
     OUT.mkdir(exist_ok=True)
@@ -490,6 +513,8 @@ def build_master():
     dd = pd.DataFrame([dict(column="date", group="calendrier", description="Lundi de la semaine ISO (début de semaine). Les features décrivent la semaine lun-dim, ou la dernière valeur publiée à la fin de celle-ci",
                             source="calculé", native_frequency="hebdo", availability="-", unit="date")] + DOCS)
     dd = dd[dd["column"].isin(out.columns)].copy()
+    dd.insert(dd.columns.get_loc("availability") + 1, "update_frequency",
+        [update_frequency(r.column, r.group, r.source, r.native_frequency) for r in dd.itertuples()])
     hist = M[M["is_future"] == 0]
     cov = {}
     for c in dd["column"]:
@@ -522,7 +547,7 @@ def build_master():
             ws.row_dimensions[2].height = 150
             ws.freeze_panes = "B3"
             wd = xw.sheets["dictionnaire"]
-            for col, wdt in zip("ABCDEFGHIJK", (32, 20, 90, 40, 18, 34, 14, 14, 14, 12, 12)):
+            for col, wdt in zip("ABCDEFGHIJKL", (32, 20, 90, 40, 18, 34, 38, 14, 14, 14, 12, 12)):
                 wd.column_dimensions[col].width = wdt
             for row in wd.iter_rows(min_row=2, min_col=3, max_col=3):
                 row[0].alignment = Alignment(wrap_text=True, vertical="top")
