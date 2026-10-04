@@ -12,9 +12,9 @@ Pipeline (same logic as main.ipynb, ET only)
   4. print + append to predictions/et_predictions.csv
 
 Usage (run from the project root, next to features_extract.py)
-  python predict_et.py --train        # once (and whenever you want to refresh the models)
-  python predict_et.py                # weekly: fetch + predict
-  python predict_et.py --no-fetch     # skip downloads, reuse data/*.csv already on disk
+  python predict.py --train        # once (and whenever you want to refresh the models)
+  python predict.py                # weekly: fetch + predict
+  python predict.py --no-fetch     # skip downloads, reuse data/*.csv already on disk
 
 Files
   data/master_weekly.csv, data/master_dictionary.csv   written by features_extract.py
