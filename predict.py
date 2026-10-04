@@ -58,7 +58,6 @@ horizons = {
     "4w":  {"y": "y_vs_chg_4w",  "freqs": ["hebdo", "journalier", "calendrier"]},
     "8w":  {"y": "y_vs_chg_8w",  "freqs": ["hebdo", "journalier", "calendrier", "mensuel"]},
     "13w": {"y": "y_vs_chg_13w", "freqs": ["hebdo", "journalier", "calendrier", "mensuel"]},
-    "26w": {"y": "y_vs_chg_26w", "freqs": ["hebdo", "journalier", "calendrier", "mensuel", "trimestriel"]},
 }
 TARGET_COLS = [c["y"] for c in horizons.values()]
 
@@ -68,7 +67,6 @@ ET_PARAMS = {
     "4w":  dict(n_estimators=300, max_depth=None, min_samples_leaf=5,  max_features=1.0),
     "8w":  dict(n_estimators=300, max_depth=None, min_samples_leaf=5,  max_features=0.6),
     "13w": dict(n_estimators=300, max_depth=None, min_samples_leaf=5,  max_features=1.0),
-    "26w": dict(n_estimators=300, max_depth=5,    min_samples_leaf=5,  max_features=0.3),
 }
 
 

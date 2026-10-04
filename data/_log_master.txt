@@ -6,7 +6,7 @@ OK   snb_zikrepro.csv (6730 Ko)
 OK   snb_devkum.csv (1999 Ko)
 OK   seco_wwa.csv (61 Ko)
 OK   meteo_ogd-smn_sio_d_historical.csv (3320 Ko)
-OK   meteo_ogd-smn_sio_d_recent.csv (44 Ko)
+OK   meteo_ogd-smn_sio_d_recent.csv (45 Ko)
 OK   holidays_PublicHolidays_CH-VS.csv (112 lignes)
 OK   holidays_SchoolHolidays_CH-VS.csv (103 lignes)
 SKIP sitg_permis_ge (renseigner SITG_WFS / SITG_TYPENAME)
@@ -18,4 +18,4 @@ BUILD OK   sec_seco
 BUILD OK   sec_snb
 BUILD OK   sec_annual
 MASTER master_weekly.csv  351 semaines x 41 colonnes
-SKIP xlsx (pip install openpyxl)
+MASTER master_weekly_documented.xlsx
